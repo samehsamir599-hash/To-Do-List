@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهامي اليومية | To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1><i class="fas fa-check-circle"></i> قائمة المهام</h1>
+            <p>نظم وقتك، وحقق أهدافك.</p>
+        </header>
+        
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="ماذا تريد أن تنجز اليوم؟">
+            <button id="addTaskBtn" aria-label="إضافة مهمة"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div class="smart-input-section">
+            <textarea id="smartInput" rows="2" placeholder="جرب الإدخال الذكي! اكتب مهامك بطريقتك الطبيعية...&#10;مثال: عندي بكره مراجعة فيزياء الساعة 5"></textarea>
+            <div class="smart-actions">
+                <button id="smartAddBtn" aria-label="إضافة ذكية بـ AI">
+                    <i class="fas fa-magic"></i> إضافة بالذكاء الاصطناعي
+                </button>
+                <div id="smartLoading" class="loading-indicator" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> جاري التحليل...
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section" id="statsSection">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalCount">0</span>
+                    <span class="stat-title">كل المهام</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="completedCount" style="color: var(--success);">0</span>
+                    <span class="stat-title">المكتملة</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="activeCount" style="color: #f59e0b;">0</span>
+                    <span class="stat-title">المتبقية</span>
+                </div>
+            </div>
+            <div class="progress-wrapper">
+                <div class="progress-info">
+                    <span>نسبة الإنجاز</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+
+        <ul id="taskList" class="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
